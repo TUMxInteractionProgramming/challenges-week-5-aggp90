@@ -278,9 +278,52 @@ li.selected {
     /* right/bottom alignment of button */
     position: absolute;
     right: 8px;
-    bottom: 8px;
+    bottom: 0px;
+   
+}
+button{
+       <!-- New Staff -->
+    border-radius: 2px;
+    min-width: 88px;
+    height: 36px;
+    margin: 8px;
+    font:14px;
+    padding-left: 16px;
+    padding-right: 16px;
+  
 }
 
 .message.own {
     margin-left: 17.5%;
 }
+
+   <!-- New Staff -->
+
+#chat-bar button.accent{
+    background-color:#CDDC39;
+    color: black;
+}
+
+.accent button{
+    background-color:#CDDC39;
+    color: black;
+}
+
+#chat-bar .primary{
+    background-color:#3F51B5;
+    color: white;
+}
+
+.fab {
+    position: absolute;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: #CDDC39;
+    height: 36px;
+    width: 36px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    right :16px;
+    bottom: 100px;
+   
+}
+

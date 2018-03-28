@@ -104,20 +104,24 @@ function Message(text) {
 function sendMessage() {
     // #8 Create a new #message to #send and log it.
     //var message = new Message("Hello chatter");
-
+if ($('#message').val().length>0){
     // #8 let's now use the #real message #input
     var message = new Message($('#message').val());
+	currentChannel.messages.push(message);
     console.log("New message:", message);
 
     // #8 nicer #message #append with jQuery:
+
     $('#messages').append(createMessageElement(message));
 
     // #8 #messages will #scroll to a certain point if we apply a certain height, in this case the overall scrollHeight of the messages-div that increases with every message;
     // it would also #scroll to the bottom when using a very high number (e.g. 1000000000);
     $('#messages').scrollTop($('#messages').prop('scrollHeight'));
-
-    // #8 #clear the #message input
+		currentChannel.messageCount=currentChannel.messageCount+1;
+	}	
+    // #8 #clear the #message input}
     $('#message').val('');
+
 }
 
 /**
@@ -140,21 +144,24 @@ function createMessageElement(messageObject) {
         messageObject.createdOn.toLocaleString() +
         '<em>' + expiresIn+ ' min. left</em></h3>' +
         '<p>' + messageObject.text + '</p>' +
-        '<button>+5 min.</button>' +
+        '<button class="accent">+5 min.</button>' +
         '</div>';
 }
 
-
-function listChannels() {
+var c=0;
+function listChannels(criterion) {
     // #8 #channel #onload
     //$('#channels ul').append("<li>New Channel</li>")
-
+	channels.sort(criterion);
+	
     // #8 #channels make five #new channels
-    $('#channels ul').append(createChannelElement(yummy));
-    $('#channels ul').append(createChannelElement(sevencontinents));
-    $('#channels ul').append(createChannelElement(killerapp));
-    $('#channels ul').append(createChannelElement(firstpersononmars));
-    $('#channels ul').append(createChannelElement(octoberfest));
+	if (c==0){
+	for (i=0; i<channels.length; i++){
+		$('#channels ul').append(createChannelElement(channels[i]));
+		c++;
+	}
+	}
+	
 }
 
 /**
